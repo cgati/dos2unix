@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+// cleanFile accepts a list of strings representing paths
+// and converts \r\n into \n
 func cleanFile(fileName string) {
 	file, err := os.Open(fileName)
 	if err != nil {
@@ -48,6 +50,9 @@ func cleanFile(fileName string) {
 	w.Flush()
 }
 
+// removeFromSlice accepts a byte slice and an integer slice
+// and deletes each index from the integer slice from the
+// byte slice
 func removeFromSlice(data []byte, indexes []int) []byte {
 	for _, i := range indexes {
 		data = append(data[:i], data[i+1:]...)
