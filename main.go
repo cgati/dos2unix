@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-// cleanFile accepts a list of strings representing paths
+// cleanFile accepts a string representing a path
 // and converts \r\n into \n
 func cleanFile(fileName string) {
 	file, err := os.Open(fileName)
