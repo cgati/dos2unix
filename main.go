@@ -31,14 +31,28 @@ func cleanFile(fileName string) {
 			}
 		}
 		data = data[:n]
+		var indexesToDelete []int
 		for i, b := range data {
 			if b == '\r' {
+				if i+1 < len(data) {
+					if data[i+1] == '\n' {
+						indexesToDelete = append(indexesToDelete, i)
+					}
+				}
 				data[i] = '\n'
 			}
 		}
+		data = removeFromSlice(data, indexesToDelete)
 		w.Write(data)
 	}
 	w.Flush()
+}
+
+func removeFromSlice(data []byte, indexes []int) []byte {
+	for _, i := range indexes {
+		data = append(data[:i], data[i+1:]...)
+	}
+	return data
 }
 
 func main() {
