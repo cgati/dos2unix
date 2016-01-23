@@ -13,6 +13,6 @@ Usage:
 
 File output:
 
-```path/to/file.csv.clean```
+```# path/to/file.csv.clean```
 
-```path/to/file/a.csv.clean path/to/file/b.csv.clean```
+```# path/to/file/a.csv.clean path/to/file/b.csv.clean```
